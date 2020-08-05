@@ -1,5 +1,6 @@
 package com.devddun.apptoapptestapp
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -15,6 +16,17 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        val intent = getIntent()
+        if(intent.action.equals(Intent.ACTION_VIEW)){
+            val uri = intent.data
+            val temp = uri?.getQueryParameter("test_data")
+            if(temp != null){
+                runOnUiThread {
+                    txt_response.text = temp
+                }
+            }
+        }
 
         btn_get.setOnClickListener {
             runOnUiThread {
