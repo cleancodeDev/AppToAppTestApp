@@ -23,8 +23,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
 
                 <data
-                    android:host="test_host"
-                    android:scheme="test_scheme"/>
+                    android:host="test_app"
+                    android:scheme="test_action"/>
             </intent-filter>
         </activity>
     </application>
